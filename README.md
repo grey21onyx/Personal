@@ -34,4 +34,4 @@ Anda dapat mengkustomisasi template ini dengan:
 
 ## Preview
 
-Website ini dapat diakses di [https://grey21onyx.github.io/username.github.io](https://grey21onyx.github.io/username.github.io)
+Website ini dapat diakses di [https://grey21onyx.github.io/Personal](https://grey21onyx.github.io/Personal)
