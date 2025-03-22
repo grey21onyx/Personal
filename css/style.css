@@ -74,6 +74,9 @@ a:hover {
 .profile-image {
     margin-right: 3rem;
     position: relative;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
 }
 
 .profile-image::after {
@@ -113,6 +116,9 @@ a:hover {
     margin-bottom: 0.5rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     letter-spacing: -0.5px;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
 }
 
 .profile-content h2 {
@@ -121,6 +127,9 @@ a:hover {
     margin-bottom: 1.5rem;
     opacity: 0.9;
     color: rgba(255, 255, 255, 0.95);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
 }
 
 .profile-content p {
@@ -129,10 +138,16 @@ a:hover {
     max-width: 600px;
     margin-bottom: 1.5rem;
     color: rgba(255, 255, 255, 0.9);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.8s;
+    opacity: 0;
 }
 
 .social-links {
     margin-top: 1.5rem;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 1s;
+    opacity: 0;
 }
 
 .social-links a {
@@ -148,6 +163,8 @@ a:hover {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(5px);
     transition: var(--transition);
+    animation: float-social 3s ease-in-out infinite;
+    animation-delay: calc(var(--i, 0) * 0.2s);
 }
 
 .social-links a:hover {
@@ -176,6 +193,7 @@ a:hover {
     position: relative;
     color: var(--dark-color);
     font-weight: 700;
+    overflow: hidden;
 }
 
 .section-title::after {
@@ -189,6 +207,26 @@ a:hover {
     left: 50%;
     transform: translateX(-50%);
     border-radius: 2px;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -15px;
+    left: 0;
+    background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--accent-color) 50%, 
+                transparent 100%);
+    animation: shimmer 3s infinite;
+    opacity: 0.7;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 /* Education timeline */
@@ -217,10 +255,11 @@ a:hover {
     left: 0;
     margin-bottom: 3rem;
     transition: transform 0.3s ease;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .timeline-item:hover {
-    transform: translateX(-5px);
+    transform: translateX(-10px) scale(1.02);
 }
 
 .timeline-item:nth-child(even) {
@@ -228,7 +267,7 @@ a:hover {
 }
 
 .timeline-item:nth-child(even):hover {
-    transform: translateX(5px);
+    transform: translateX(10px) scale(1.02);
 }
 
 .timeline-item::before {
@@ -242,7 +281,7 @@ a:hover {
     z-index: 1;
     right: -10px;
     top: 15px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .timeline-item:nth-child(even)::before {
@@ -251,7 +290,8 @@ a:hover {
 }
 
 .timeline-item:hover::before {
-    background-color: var(--accent-color);
+    transform: scale(1.3);
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
 }
 
 .timeline-content {
@@ -296,19 +336,44 @@ a:hover {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--box-shadow);
-    transition: var(--transition);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.5s ease;
     position: relative;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(58, 110, 165, 0.2), rgba(255, 107, 107, 0.2));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: 12px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.project-card:hover::before {
+    opacity: 1;
 }
 
 .project-img {
     width: 100%;
     height: 180px;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.05);
 }
 
 .project-content {
@@ -368,11 +433,32 @@ a:hover {
     padding: 2rem;
     box-shadow: var(--box-shadow);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
 
 .skill-category:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.skill-category:hover::after {
+    transform: translateX(100%);
 }
 
 .skill-category h3 {
@@ -541,8 +627,8 @@ body.dark-mode .timeline-content h3 {
 
 /* Navbar styles */
 .navbar {
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -567,25 +653,37 @@ body.dark-mode .timeline-content h3 {
     font-weight: 500;
     position: relative;
     transition: var(--transition);
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-color);
+    transition: left 0.3s ease;
+}
+
+.nav-link:hover::before {
+    left: 0;
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
+    bottom: 0;
+    right: -100%;
+    width: 100%;
     height: 2px;
-    background-color: var(--accent-color);
-    transition: var(--transition);
-}
-
-.nav-link:hover {
-    color: var(--accent-color);
+    background: var(--accent-color);
+    transition: right 0.3s ease;
 }
 
 .nav-link:hover::after {
-    width: 100%;
+    right: 0;
 }
 
 #theme-toggle {
@@ -664,14 +762,15 @@ body.dark-mode .timeline-content h3 {
     border-radius: 6px;
     font-family: inherit;
     font-size: 1rem;
-    transition: var(--transition);
+    transition: all 0.3s ease;
+    border-left: 2px solid transparent;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(58, 110, 165, 0.1);
+    border-color: var(--accent-color);
+    transform: translateX(5px);
 }
 
 .btn-submit {
@@ -684,12 +783,25 @@ body.dark-mode .timeline-content h3 {
     font-weight: 500;
     cursor: pointer;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
-.btn-submit:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+    z-index: -1;
+}
+
+.btn-submit:hover::before {
+    left: 100%;
 }
 
 /* Responsive */
@@ -779,6 +891,12 @@ body.dark-mode .timeline-content h3 {
     opacity: 0.4;
     filter: blur(40px);
     border-radius: 50%;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.bg-shape:hover {
+    opacity: 0.6 !important;
+    filter: blur(30px);
 }
 
 .bg-shape-1 {
@@ -901,7 +1019,7 @@ body.dark-mode {
 }
 
 body.dark-mode .navbar {
-    background-color: #1a1a1a;
+    background-color: rgba(26, 26, 26, 0.95);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -993,12 +1111,26 @@ body.dark-mode .contact::before {
     border-radius: 3px;
     position: relative;
     animation: progressAnimation 1s ease-in-out;
+    transition: width 1.5s cubic-bezier(0.1, 0.45, 0.1, 1);
 }
 
-@keyframes progressAnimation {
-    from {
-        width: 0;
-    }
+.skill-progress-bar::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.skill-progress-bar:hover::after {
+    opacity: 1;
 }
 
 /* Badge elements */
@@ -1048,19 +1180,16 @@ body.dark-mode .contact::before {
 .timeline-item {
     opacity: 0;
     transform: translateX(-50px);
-    animation: slideIn 0.8s forwards;
-    animation-delay: calc(var(--i) * 0.2s);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0.3, 1);
 }
 
 .timeline-item:nth-child(even) {
     transform: translateX(50px);
 }
 
-@keyframes slideIn {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.timeline-item.animate-in {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* Section titles with gradient */
@@ -1100,4 +1229,472 @@ body.dark-mode .bg-shape {
 
 body.dark-mode .social-links a:hover {
     background: var(--accent-color);
+}
+
+/* Mini profile in navbar */
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.mini-profile {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.mini-profile.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mini-profile::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.mini-profile:hover::after {
+    width: 100%;
+}
+
+.mini-profile:hover {
+    transform: translateY(-3px);
+}
+
+.mini-profile img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid var(--primary-color);
+    transition: var(--transition);
+    object-fit: cover;
+}
+
+.mini-profile:hover img {
+    transform: scale(1.1);
+    border-color: var(--accent-color);
+}
+
+.mini-profile span {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--dark-color);
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.mini-profile:hover span {
+    color: var(--accent-color);
+}
+
+body.dark-mode .mini-profile span {
+    color: #e0e0e0;
+}
+
+/* Responsive styles for mini profile */
+@media (max-width: 768px) {
+    .mini-profile span {
+        display: none;
+    }
+    
+    .mini-profile {
+        margin-right: 1rem;
+    }
+    
+    .mini-profile img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mini-profile {
+        margin-right: 0.5rem;
+    }
+}
+
+/* Updated navbar container */
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Judul dengan efek typing animation */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink .75s step-end infinite;
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* Animasi scroll lebih halus untuk section */
+.section {
+    transition: opacity 0.8s cubic-bezier(0.5, 0, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.5, 0, 0.3, 1);
+}
+
+/* Animasi skill progress bar yang lebih menarik */
+.skill-progress-bar {
+    transition: width 1.5s cubic-bezier(0.1, 0.45, 0.1, 1);
+    position: relative;
+    overflow: visible;
+}
+
+.skill-progress-bar::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.skill-progress-bar:hover::after {
+    opacity: 1;
+}
+
+/* Efek floating pada social links */
+@keyframes float-social {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+.social-links a:nth-child(1) { --i: 1; }
+.social-links a:nth-child(2) { --i: 2; }
+.social-links a:nth-child(3) { --i: 3; }
+.social-links a:nth-child(4) { --i: 4; }
+
+/* Efek hover pada mini profile yang lebih menarik */
+.mini-profile {
+    position: relative;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.mini-profile::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.mini-profile:hover::after {
+    width: 100%;
+}
+
+.mini-profile:hover {
+    transform: translateY(-3px);
+}
+
+/* Animasi scroll lebih halus untuk section */
+.section {
+    transition: opacity 0.8s cubic-bezier(0.5, 0, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.5, 0, 0.3, 1);
+}
+
+/* Timeline item animation enhancement */
+.timeline-item {
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.timeline-item:hover {
+    transform: translateX(-10px) scale(1.02);
+}
+
+.timeline-item:nth-child(even):hover {
+    transform: translateX(10px) scale(1.02);
+}
+
+/* Timeline dot animation */
+.timeline-item::before {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.timeline-item:hover::before {
+    transform: scale(1.3);
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+}
+
+/* Header content fade-in staggered animation */
+.profile-content h1 {
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+.profile-content h2 {
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+.profile-content p {
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.8s;
+    opacity: 0;
+}
+
+.profile-content .social-links {
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fancy hover effect for skill categories */
+.skill-category {
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-category::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                rgba(255, 255, 255, 0) 50%, 
+                rgba(255, 255, 255, 0.1) 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.skill-category:hover::after {
+    transform: translateX(100%);
+}
+
+/* Form input animation */
+.form-group input,
+.form-group textarea {
+    transition: all 0.3s ease;
+    border-left: 2px solid transparent;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-left: 2px solid var(--accent-color);
+    transform: translateX(5px);
+}
+
+/* Submit button enhancement */
+.btn-submit {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+    z-index: -1;
+}
+
+.btn-submit:hover::before {
+    left: 100%;
+}
+
+/* Background shapes enhanced animation */
+.bg-shape {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.bg-shape:hover {
+    opacity: 0.6 !important;
+    filter: blur(30px);
+}
+
+/* Section title animation */
+.section-title {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -15px;
+    left: 0;
+    background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--accent-color) 50%, 
+                transparent 100%);
+    animation: shimmer 3s infinite;
+    opacity: 0.7;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Progress bar loading animation */
+@keyframes loading-progress {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.skill-progress-bar {
+    background: linear-gradient(90deg, 
+                var(--primary-color), 
+                var(--accent-color), 
+                var(--primary-color));
+    background-size: 200% 100%;
+    animation: loading-progress 3s infinite;
+}
+
+/* Smooth scroll behavior for whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Tambahan untuk typing animation pada section titles */
+.section-title {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title.typing-visible::after {
+    animation: typing-cursor 1.2s step-end infinite;
+}
+
+@keyframes typing-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Perbaikan untuk progress bar pada dark mode */
+body.dark-mode .skill-progress {
+    background-color: #333;
+}
+
+/* Efek hover yang lebih baik untuk cards */
+.project-card,
+.skill-category,
+.timeline-content {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Perbaikan untuk social media hover animation */
+.social-links a {
+    transform-origin: center;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Efek glassmorphism untuk navbar yang lebih kuat */
+@supports (backdrop-filter: blur(10px)) {
+    .navbar {
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+    }
+    
+    body.dark-mode .navbar {
+        background-color: rgba(26, 26, 26, 0.8);
+    }
+    
+    .mini-profile.visible {
+        backdrop-filter: blur(5px);
+    }
+}
+
+/* Preloader for better UX */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+body.dark-mode .preloader {
+    background-color: #121212;
+}
+
+.preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(58, 110, 165, 0.2);
+    border-radius: 50%;
+    border-top-color: var(--accent-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

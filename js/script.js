@@ -1,5 +1,18 @@
 // Add smooth scrolling for navigation and interactive features
 document.addEventListener('DOMContentLoaded', function() {
+    // Hide preloader when page is fully loaded
+    window.addEventListener('load', function() {
+        const preloader = document.querySelector('.preloader');
+        if (preloader) {
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 500);
+        }
+    });
+
     // Animation on scroll - reveal elements as they come into view
     const revealElements = () => {
         const sections = document.querySelectorAll('.section');
@@ -40,6 +53,36 @@ document.addEventListener('DOMContentLoaded', function() {
                     behavior: 'smooth'
                 });
             }
+        });
+    });
+    
+    // Show/hide mini profile when header is out of view
+    const header = document.querySelector('.header');
+    const miniProfile = document.querySelector('.mini-profile');
+    
+    const toggleMiniProfile = () => {
+        // Get the bottom position of the header
+        const headerBottom = header.getBoundingClientRect().bottom;
+        
+        // If header is out of view (header bottom is less than 0), show mini profile
+        if (headerBottom <= 0) {
+            miniProfile.classList.add('visible');
+        } else {
+            miniProfile.classList.remove('visible');
+        }
+    };
+    
+    // Check on initial load
+    toggleMiniProfile();
+    
+    // Check on scroll
+    window.addEventListener('scroll', toggleMiniProfile);
+    
+    // Mini profile click to scroll to top
+    miniProfile.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
     });
     
@@ -216,4 +259,142 @@ document.addEventListener('DOMContentLoaded', function() {
             shape.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
         });
     });
+    
+    // Add 3D tilt effect to project cards
+    const addTiltEffectToCards = () => {
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        projectCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenterX = cardRect.left + cardRect.width / 2;
+                const cardCenterY = cardRect.top + cardRect.height / 2;
+                
+                const mouseX = e.clientX - cardCenterX;
+                const mouseY = e.clientY - cardCenterY;
+                
+                const rotateY = mouseX / 15;
+                const rotateX = -mouseY / 15;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+    };
+    
+    // Enable the tilt effect only on larger screens
+    if (window.innerWidth > 768) {
+        addTiltEffectToCards();
+    }
+    
+    // Add dynamic background effects
+    const addDynamicBackgroundEffects = () => {
+        const header = document.querySelector('.header');
+        const moveDistance = 30;
+        
+        window.addEventListener('scroll', () => {
+            const scrollPercentage = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+            const moveY = scrollPercentage * moveDistance;
+            
+            if (header) {
+                header.style.backgroundPosition = `center ${-moveY}px`;
+            }
+        });
+    };
+    
+    addDynamicBackgroundEffects();
+    
+    // Add typing animation for section titles
+    const addTypingEffectToTitles = () => {
+        const sectionTitles = document.querySelectorAll('.section-title');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('typing-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        sectionTitles.forEach(title => {
+            observer.observe(title);
+        });
+    };
+    
+    addTypingEffectToTitles();
+    
+    // Add staggered animation for timeline items
+    const animateTimelineItems = () => {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animate-in');
+                    }, index * 200);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        timelineItems.forEach(item => {
+            observer.observe(item);
+        });
+    };
+    
+    animateTimelineItems();
+    
+    // Add enhanced mouseover effect for skill items
+    const enhanceSkillItemsInteraction = () => {
+        const skillItems = document.querySelectorAll('.skill-item');
+        
+        skillItems.forEach(item => {
+            item.addEventListener('mouseover', function() {
+                const siblings = Array.from(this.parentNode.children).filter(child => child !== this);
+                
+                siblings.forEach(sibling => {
+                    sibling.style.opacity = '0.5';
+                    sibling.style.transform = 'scale(0.95)';
+                });
+                
+                this.style.transform = 'scale(1.1)';
+                this.style.zIndex = '2';
+            });
+            
+            item.addEventListener('mouseout', function() {
+                const siblings = Array.from(this.parentNode.children);
+                
+                siblings.forEach(sibling => {
+                    sibling.style.opacity = '1';
+                    sibling.style.transform = 'scale(1)';
+                });
+                
+                this.style.zIndex = '1';
+            });
+        });
+    };
+    
+    enhanceSkillItemsInteraction();
+    
+    // Add glowing effect to buttons on hover
+    const addGlowEffect = () => {
+        const buttons = document.querySelectorAll('.btn-submit, .project-links a');
+        
+        buttons.forEach(button => {
+            button.addEventListener('mouseover', function() {
+                this.style.boxShadow = `0 0 15px ${getComputedStyle(document.documentElement).getPropertyValue('--accent-color')}`;
+            });
+            
+            button.addEventListener('mouseout', function() {
+                this.style.boxShadow = '';
+            });
+        });
+    };
+    
+    addGlowEffect();
 });
