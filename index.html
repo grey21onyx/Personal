@@ -5,31 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Branding - Nama Anda</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://via.placeholder.com/32" sizes="32x32">
+    <meta name="description" content="Personal Branding Website - Portofolio Profesional">
 </head>
 <body>
-    <header class="header">
+    <header class="header fade-in">
         <div class="container">
             <div class="profile">
                 <div class="profile-image">
                     <!-- Ganti URL dengan foto Anda -->
-                    <img src="https://via.placeholder.com/150" alt="Foto Profil">
+                    <img src="https://via.placeholder.com/180" alt="Foto Profil">
                 </div>
                 <div class="profile-content">
                     <h1>Nama Anda</h1>
                     <h2>Deskripsi Singkat / Posisi</h2>
-                    <p>Deskripsi lebih detail tentang diri Anda, minat, dan tujuan karier.</p>
+                    <p>Deskripsi lebih detail tentang diri Anda, minat, dan tujuan karier. Gunakan bagian ini untuk memberikan gambaran singkat tentang siapa Anda, apa yang Anda lakukan, dan apa yang membuat Anda unik di bidang Anda.</p>
                     <div class="social-links">
-                        <a href="https://linkedin.com/in/your-username" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/your-username" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="mailto:email@example.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://linkedin.com/in/your-username" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/your-username" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="mailto:email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://twitter.com/your-username" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/your-username" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="section education">
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-links">
+                <a href="#education" class="nav-link">Pendidikan</a>
+                <a href="#projects" class="nav-link">Proyek</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Kontak</a>
+            </div>
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section id="education" class="section education">
         <div class="container">
             <h2 class="section-title">Pendidikan</h2>
             <div class="timeline">
@@ -38,6 +59,7 @@
                         <h3>Universitas Anda</h3>
                         <p class="time">2020 - Sekarang</p>
                         <p>Jurusan yang Anda ambil</p>
+                        <p>Deskripsi tentang pengalaman pendidikan Anda, prestasi, atau area fokus khusus selama masa studi.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -45,48 +67,59 @@
                         <h3>SMU Anda</h3>
                         <p class="time">2017 - 2020</p>
                         <p>Jurusan yang Anda ambil di SMU</p>
+                        <p>Deskripsi singkat tentang pengalaman dan pencapaian Anda selama di SMU.</p>
                     </div>
                 </div>
+                <!-- Tambahkan pendidikan lain jika diperlukan -->
             </div>
         </div>
     </section>
 
-    <section class="section projects">
+    <section id="projects" class="section projects">
         <div class="container">
-            <h2 class="section-title">Proyek</h2>
+            <h2 class="section-title">Proyek Terbaik</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3>Proyek PBL Semester 1</h3>
-                    <p class="time">2021</p>
-                    <p>Deskripsi singkat tentang proyek PBL yang Anda kerjakan pada semester 1.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank"><i class="fab fa-github"></i> Source Code</a>
-                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format" alt="Project 1" class="project-img">
+                    <div class="project-content">
+                        <h3>Proyek PBL Semester 1</h3>
+                        <p class="time">2021</p>
+                        <p>Deskripsi singkat tentang proyek PBL yang Anda kerjakan pada semester 1. Jelaskan teknologi yang digunakan dan hasil yang dicapai.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <h3>Proyek Personal</h3>
-                    <p class="time">2022</p>
-                    <p>Deskripsi singkat tentang proyek personal yang pernah Anda kerjakan.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank"><i class="fab fa-github"></i> Source Code</a>
-                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1974&auto=format" alt="Project 2" class="project-img">
+                    <div class="project-content">
+                        <h3>Proyek Personal</h3>
+                        <p class="time">2022</p>
+                        <p>Deskripsi singkat tentang proyek personal yang pernah Anda kerjakan. Jelaskan masalah yang diselesaikan dan teknologi yang digunakan.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
-                    <h3>Proyek Lainnya</h3>
-                    <p class="time">2023</p>
-                    <p>Deskripsi singkat tentang proyek lainnya yang pernah Anda kerjakan.</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank"><i class="fab fa-github"></i> Source Code</a>
-                        <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format" alt="Project 3" class="project-img">
+                    <div class="project-content">
+                        <h3>Proyek Lainnya</h3>
+                        <p class="time">2023</p>
+                        <p>Deskripsi singkat tentang proyek lainnya yang pernah Anda kerjakan. Jelaskan tantangan dan solusi yang Anda implementasikan.</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank"><i class="fab fa-github"></i> Source Code</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section skills">
+    <section id="skills" class="section skills">
         <div class="container">
             <h2 class="section-title">Skills</h2>
             <div class="skills-container">
@@ -124,13 +157,52 @@
         </div>
     </section>
 
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>email@example.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+62 812 3456 7890</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Kota Anda, Indonesia</p>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nama</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Nama Anda. All Rights Reserved.</p>
+            <p>&copy; <span class="year">2024</span> Nama Anda. All Rights Reserved.</p>
             <div class="social-links">
-                <a href="https://linkedin.com/in/your-username" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/your-username" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:email@example.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/your-username" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/your-username" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="mailto:email@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://twitter.com/your-username" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/your-username" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
