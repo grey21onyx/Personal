@@ -12,7 +12,13 @@
     <link rel="icon" type="image/png" href="https://via.placeholder.com/32" sizes="32x32">
     <meta name="description" content="Personal Branding Website - Portofolio Profesional">
 </head>
-<body>
+<body class="dark-mode">
+    <!-- Background decorative elements -->
+    <div class="pattern"></div>
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+    <div class="bg-shape bg-shape-3"></div>
+
     <header class="header fade-in">
         <div class="container">
             <div class="profile">
@@ -21,7 +27,7 @@
                     <img src="https://via.placeholder.com/180" alt="Foto Profil">
                 </div>
                 <div class="profile-content">
-                    <h1>Nama Anda</h1>
+                    <h1>Nama Anda <span class="badge badge-accent">Available for Hire</span></h1>
                     <h2>Deskripsi Singkat / Posisi</h2>
                     <p>Deskripsi lebih detail tentang diri Anda, minat, dan tujuan karier. Gunakan bagian ini untuk memberikan gambaran singkat tentang siapa Anda, apa yang Anda lakukan, dan apa yang membuat Anda unik di bidang Anda.</p>
                     <div class="social-links">
@@ -45,24 +51,24 @@
                 <a href="#contact" class="nav-link">Kontak</a>
             </div>
             <button id="theme-toggle" aria-label="Toggle Dark Mode">
-                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
             </button>
         </div>
     </nav>
 
     <section id="education" class="section education">
         <div class="container">
-            <h2 class="section-title">Pendidikan</h2>
+            <h2 class="section-title section-title-gradient">Pendidikan</h2>
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item" style="--i:1">
                     <div class="timeline-content">
-                        <h3>Universitas Anda</h3>
+                        <h3>Universitas Anda <span class="badge badge-primary">Current</span></h3>
                         <p class="time">2020 - Sekarang</p>
                         <p>Jurusan yang Anda ambil</p>
                         <p>Deskripsi tentang pengalaman pendidikan Anda, prestasi, atau area fokus khusus selama masa studi.</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" style="--i:2">
                     <div class="timeline-content">
                         <h3>SMU Anda</h3>
                         <p class="time">2017 - 2020</p>
@@ -77,12 +83,12 @@
 
     <section id="projects" class="section projects">
         <div class="container">
-            <h2 class="section-title">Proyek Terbaik</h2>
+            <h2 class="section-title section-title-gradient">Proyek Terbaik</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format" alt="Project 1" class="project-img">
                     <div class="project-content">
-                        <h3>Proyek PBL Semester 1</h3>
+                        <h3>Proyek PBL Semester 1 <span class="badge badge-accent">Featured</span></h3>
                         <p class="time">2021</p>
                         <p>Deskripsi singkat tentang proyek PBL yang Anda kerjakan pada semester 1. Jelaskan teknologi yang digunakan dan hasil yang dicapai.</p>
                         <div class="project-links">
@@ -121,36 +127,156 @@
 
     <section id="skills" class="section skills">
         <div class="container">
-            <h2 class="section-title">Skills</h2>
+            <h2 class="section-title section-title-gradient">Skills</h2>
             <div class="skills-container">
                 <div class="skill-category">
                     <h3>Programming Languages</h3>
                     <div class="skill-list">
-                        <span class="skill-item">HTML</span>
-                        <span class="skill-item">CSS</span>
-                        <span class="skill-item">JavaScript</span>
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">Java</span>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">HTML</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">CSS</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">JavaScript</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">Python</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">Java</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 65%"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Tools & Frameworks</h3>
                     <div class="skill-list">
-                        <span class="skill-item">Git</span>
-                        <span class="skill-item">VS Code</span>
-                        <span class="skill-item">React</span>
-                        <span class="skill-item">Node.js</span>
-                        <span class="skill-item">Bootstrap</span>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">Git</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">VS Code</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">React</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">Node.js</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">Bootstrap</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Soft Skills</h3>
                     <div class="skill-list">
-                        <span class="skill-item">Teamwork</span>
-                        <span class="skill-item">Communication</span>
-                        <span class="skill-item">Problem Solving</span>
-                        <span class="skill-item">Time Management</span>
-                        <span class="skill-item">Leadership</span>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">Teamwork</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">Communication</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">Problem Solving</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">Time Management</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="skill-header">
+                                <span class="skill-item">Leadership</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-progress">
+                                <div class="skill-progress-bar" style="width: 75%"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -159,7 +285,7 @@
 
     <section id="contact" class="section contact">
         <div class="container">
-            <h2 class="section-title">Hubungi Saya</h2>
+            <h2 class="section-title section-title-gradient">Hubungi Saya</h2>
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-item">

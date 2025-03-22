@@ -43,15 +43,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Theme toggle (dark/light mode)
+    // Theme toggle (dark/light mode) - default is dark mode
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     
-    // Check if user has a preference stored
+    // Always start with dark mode unless explicitly set to light
     const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
+    if (currentTheme === 'light') {
+        body.classList.remove('dark-mode');
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+        // Ensure dark mode is set as default
         body.classList.add('dark-mode');
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        localStorage.setItem('theme', 'dark');
     }
     
     themeToggle.addEventListener('click', function() {
@@ -65,6 +70,33 @@ document.addEventListener('DOMContentLoaded', function() {
             themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         }
     });
+    
+    // Animate skill progress bars
+    const animateProgressBars = () => {
+        const skillProgressBars = document.querySelectorAll('.skill-progress-bar');
+        skillProgressBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => {
+                bar.style.width = width;
+            }, 300);
+        });
+    };
+    
+    // Observe skills section to trigger animations
+    const skillsSection = document.getElementById('skills');
+    if (skillsSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        observer.observe(skillsSection);
+    }
     
     // Form submission handling
     const contactForm = document.querySelector('.contact-form');
@@ -149,5 +181,39 @@ document.addEventListener('DOMContentLoaded', function() {
             navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.08)';
             navbar.style.padding = '1rem 0';
         }
+    });
+    
+    // Animate decorative elements
+    const animateDecorativeElements = () => {
+        const bgShapes = document.querySelectorAll('.bg-shape');
+        bgShapes.forEach((shape, index) => {
+            const delay = index * 0.2;
+            shape.style.opacity = '0';
+            shape.style.transform = 'scale(0.8)';
+            
+            setTimeout(() => {
+                shape.style.transition = 'opacity 1s ease, transform 1s ease';
+                shape.style.opacity = body.classList.contains('dark-mode') ? '0.2' : '0.4';
+                shape.style.transform = 'scale(1)';
+            }, delay * 1000);
+        });
+    };
+    
+    // Run shape animations on load
+    animateDecorativeElements();
+    
+    // Add parallax effect to background shapes
+    window.addEventListener('mousemove', (e) => {
+        const shapes = document.querySelectorAll('.bg-shape');
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        
+        shapes.forEach((shape, index) => {
+            const factor = (index + 1) * 20;
+            const xOffset = (x - 0.5) * factor;
+            const yOffset = (y - 0.5) * factor;
+            
+            shape.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+        });
     });
 });
