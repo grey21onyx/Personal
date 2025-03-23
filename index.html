@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+    <!-- Meta Tags untuk SEO dan responsivitas -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Muhamad Ariffadhlullah</title>
@@ -8,30 +9,37 @@
     <meta name="keywords" content="Muhamad Ariffadhlullah, Software Engineer, Web Developer, Portfolio, Batam, Indonesia">
     <meta name="author" content="Muhamad Ariffadhlullah">
     <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags untuk sharing ke social media -->
     <meta property="og:title" content="About Me - Muhamad Ariffadhlullah">
     <meta property="og:description" content="Website portofolio profesional Muhamad Ariffadhlullah, seorang Software Engineer dan mahasiswa Teknik Rekayasa Perangkat Lunak di Politeknik Negeri Batam.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://yourwebsite.com">
     <meta property="og:image" content="https://media.discordapp.net/attachments/918866718326145084/1353049514784718930/WhatsApp_Image_2025-03-22_at_23.54.47.jpeg?ex=67e03d0e&is=67deeb8e&hm=01c110689738e78e608a91ea89b79a302608cf09b369b848120ec1b8220868d8&=&format=webp&width=990&height=990">
+    
+    <!-- CSS dan Font imports -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/918866718326145084/1353049514784718930/WhatsApp_Image_2025-03-22_at_23.54.47.jpeg?ex=67e03d0e&is=67deeb8e&hm=01c110689738e78e608a91ea89b79a302608cf09b369b848120ec1b8220868d8&=&format=webp&width=990&height=990" sizes="32x32">
 </head>
 <body class="dark-mode">
-    <!-- Preloader -->
+    <!-- Preloader - Ditampilkan selama halaman dimuat -->
     <div class="preloader">
         <div class="preloader-spinner"></div>
     </div>
 
-    <!-- Background decorative elements -->
+    <!-- Background decorative elements - Elemen dekoratif background -->
     <div class="pattern"></div>
     <div class="bg-shape bg-shape-1"></div>
     <div class="bg-shape bg-shape-2"></div>
     <div class="bg-shape bg-shape-3"></div>
 
+    <!-- Header - Bagian atas website dengan profil utama -->
     <header class="header fade-in">
         <div class="container">
             <div class="profile">
@@ -51,6 +59,7 @@
         </div>
     </header>
 
+    <!-- Navbar - Menu navigasi sticky -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-content">
@@ -65,16 +74,19 @@
                     <a href="#contact" class="nav-link">Kontak</a>
                 </div>
             </div>
+            <!-- Toggle button untuk dark/light mode -->
             <button id="theme-toggle" aria-label="Toggle Dark Mode">
                 <i class="fas fa-sun"></i>
             </button>
         </div>
     </nav>
 
+    <!-- Section Pendidikan - Menampilkan timeline riwayat pendidikan -->
     <section id="education" class="section education">
         <div class="container">
             <h2 class="section-title section-title-gradient">Pendidikan</h2>
             <div class="timeline">
+                <!-- Timeline item untuk pendidikan saat ini -->
                 <div class="timeline-item" style="--i:1">
                     <div class="timeline-content">
                         <h3>Universitas Politeknik Negeri Batam <span class="badge badge-primary">Current</span></h3>
@@ -83,6 +95,7 @@
                         <p>Saya menekuni berbagai ilmu mengenai software engineering seperti pengembangan web, pemrograman berorientasi objek, dan manajemen basis data.</p>
                     </div>
                 </div>
+                <!-- Timeline item untuk pendidikan sebelumnya -->
                 <div class="timeline-item" style="--i:2">
                     <div class="timeline-content">
                         <h3>SMA Negeri 4 Batam</h3>
@@ -95,10 +108,12 @@
         </div>
     </section>
 
+    <!-- Section Proyek - Menampilkan proyek-proyek yang pernah dikerjakan -->
     <section id="projects" class="section projects">
         <div class="container">
             <h2 class="section-title section-title-gradient">Proyek saya</h2>
             <div class="projects-grid">
+                <!-- Project Card 1 -->
                 <div class="project-card">
                     <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format" alt="Project 1" class="project-img">
                     <div class="project-content">
@@ -110,6 +125,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Project Card 2 -->
                 <div class="project-card">
                     <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1974&auto=format" alt="Project 2" class="project-img">
                     <div class="project-content">
@@ -125,10 +141,12 @@
         </div>
     </section>
 
+    <!-- Section Skills - Menampilkan kemampuan dan keahlian -->
     <section id="skills" class="section skills">
         <div class="container">
             <h2 class="section-title section-title-gradient">Skills</h2>
             <div class="skills-container">
+                <!-- Kategori Programming Languages & Databases -->
                 <div class="skill-category">
                     <h3>Programming Languages & Databases</h3>
                     <div class="skill-list">
@@ -179,6 +197,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Kategori Tools & Frameworks -->
                 <div class="skill-category">
                     <h3>Tools & Frameworks</h3>
                     <div class="skill-list">
@@ -229,6 +248,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Kategori Soft Skills -->
                 <div class="skill-category">
                     <h3>Soft Skills</h3>
                     <div class="skill-list">
@@ -265,10 +285,12 @@
         </div>
     </section>
 
+    <!-- Section Kontak - Form kontak dan informasi kontak lainnya -->
     <section id="contact" class="section contact">
         <div class="container">
             <h2 class="section-title section-title-gradient">Hubungi Saya</h2>
             <div class="contact-container">
+                <!-- Informasi kontak -->
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
@@ -283,6 +305,7 @@
                         <p>Batam, Indonesia</p>
                     </div>
                 </div>
+                <!-- Form kontak -->
                 <form class="contact-form">
                     <div class="form-group">
                         <label for="name">Nama</label>
@@ -302,6 +325,7 @@
         </div>
     </section>
 
+    <!-- Footer - Copyright dan social media links -->
     <footer class="footer">
         <div class="container">
             <p>&copy; <span class="year">2024</span> Muhamad Ariffadhlullah. All Rights Reserved.</p>
@@ -312,6 +336,7 @@
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script src="js/script.js"></script>
 </body>
 </html>

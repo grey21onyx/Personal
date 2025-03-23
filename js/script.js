@@ -1,6 +1,15 @@
-// Add smooth scrolling for navigation and interactive features
+/**
+ * Website Personal Portfolio Muhamad Ariffadhlullah
+ * Script utama yang menangani interaksi dan animasi
+ * Semua interaksi UI termasuk preloader, animasi scroll, dark mode, dan form handling
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Hide preloader when page is fully loaded
+    /**
+     * Preloader
+     * Menghilangkan preloader setelah halaman selesai dimuat
+     * Menggunakan setTimeout untuk memberikan efek fade out yang halus
+     */
     window.addEventListener('load', function() {
         const preloader = document.querySelector('.preloader');
         if (preloader) {
@@ -8,12 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 preloader.classList.add('fade-out');
                 setTimeout(() => {
                     preloader.style.display = 'none';
-                }, 500);
-            }, 500);
+                }, 500); // Menunggu animasi fade out selesai
+            }, 500); // Delay sedikit sebelum memulai fade out
         }
     });
 
-    // Animation on scroll - reveal elements as they come into view
+    /**
+     * Animasi Reveal Section
+     * Menampilkan elemen section dengan animasi saat pengguna melakukan scroll
+     * Menambahkan class 'active' pada section yang terlihat di viewport
+     */
     const revealElements = () => {
         const sections = document.querySelectorAll('.section');
         
@@ -21,25 +34,33 @@ document.addEventListener('DOMContentLoaded', function() {
             const sectionTop = section.getBoundingClientRect().top;
             const windowHeight = window.innerHeight;
             
+            // Saat section mendekati viewport (100px dari batas viewport)
             if (sectionTop < windowHeight - 100) {
                 section.classList.add('active');
             }
         });
     };
 
-    // Add active class to all sections initially visible
+    // Jalankan revealElements saat halaman pertama kali dimuat
     revealElements();
     
-    // Listen for scroll events
+    // Panggil revealElements saat pengguna melakukan scroll
     window.addEventListener('scroll', revealElements);
     
-    // Add current year to footer copyright
+    /**
+     * Update Copyright Year
+     * Menambahkan tahun saat ini ke footer copyright
+     */
     const yearSpan = document.querySelector('.year');
     if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
     
-    // Smooth scrolling for navigation links
+    /**
+     * Smooth Scrolling
+     * Menambahkan fitur smooth scrolling untuk link navigasi
+     * Memastikan pengguna dapat mengklik link dan halaman akan scroll dengan halus
+     */
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -49,22 +70,25 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetSection) {
                 window.scrollTo({
-                    top: targetSection.offsetTop - 70,
+                    top: targetSection.offsetTop - 70, // Offset 70px agar tidak tertutup navbar
                     behavior: 'smooth'
                 });
             }
         });
     });
     
-    // Show/hide mini profile when header is out of view
+    /**
+     * Mini Profile Toggle
+     * Menampilkan/menyembunyikan mini profile saat header tidak terlihat
+     * Berguna untuk navigasi saat pengguna melakukan scroll ke bawah
+     */
     const header = document.querySelector('.header');
     const miniProfile = document.querySelector('.mini-profile');
     
     const toggleMiniProfile = () => {
-        // Get the bottom position of the header
         const headerBottom = header.getBoundingClientRect().bottom;
         
-        // If header is out of view (header bottom is less than 0), show mini profile
+        // Jika header tidak terlihat (sudah di scroll melewati batas atas), tampilkan mini profile
         if (headerBottom <= 0) {
             miniProfile.classList.add('visible');
         } else {
@@ -72,13 +96,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    // Check on initial load
+    // Periksa posisi header saat halaman dimuat
     toggleMiniProfile();
     
-    // Check on scroll
+    // Periksa posisi header saat pengguna scroll
     window.addEventListener('scroll', toggleMiniProfile);
     
-    // Mini profile click to scroll to top
+    /**
+     * Scroll to Top
+     * Scroll ke atas saat mini profile diklik
+     */
     miniProfile.addEventListener('click', function() {
         window.scrollTo({
             top: 0,
@@ -86,22 +113,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Theme toggle (dark/light mode) - default is dark mode
+    /**
+     * Dark Mode Toggle
+     * Mengelola tema gelap/terang
+     * Menyimpan preferensi tema pengguna di localStorage
+     */
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     
-    // Always start with dark mode unless explicitly set to light
+    // Cek tema yang disimpan di localStorage
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'light') {
         body.classList.remove('dark-mode');
         themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
     } else {
-        // Ensure dark mode is set as default
+        // Default ke dark mode jika tidak ada preferensi tersimpan
         body.classList.add('dark-mode');
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         localStorage.setItem('theme', 'dark');
     }
     
+    // Toggle tema saat tombol diklik
     themeToggle.addEventListener('click', function() {
         body.classList.toggle('dark-mode');
         
@@ -114,52 +146,62 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Animate skill progress bars
+    /**
+     * Skills Progress Bar Animation
+     * Animasi progress bar pada bagian skills
+     * Bar akan terisi secara progresif saat section skills terlihat
+     */
     const animateProgressBars = () => {
         const skillProgressBars = document.querySelectorAll('.skill-progress-bar');
         skillProgressBars.forEach(bar => {
             const width = bar.style.width;
+            // Reset width terlebih dahulu
             bar.style.width = '0';
+            // Kemudian animasikan ke nilai aslinya
             setTimeout(() => {
                 bar.style.width = width;
             }, 300);
         });
     };
     
-    // Observe skills section to trigger animations
+    // Gunakan Intersection Observer untuk memicu animasi progress bar
     const skillsSection = document.getElementById('skills');
     if (skillsSection) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     animateProgressBars();
+                    // Berhenti mengobservasi setelah terpicu
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.3 }); // Trigger ketika 30% section terlihat
         
         observer.observe(skillsSection);
     }
     
-    // Form submission handling
+    /**
+     * Contact Form Handling
+     * Penanganan submit form kontak
+     * Melakukan validasi sederhana dan menampilkan pesan sukses
+     */
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form values
+            // Ambil nilai form
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
-            // Simple validation
+            // Validasi sederhana
             if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
                 alert('Mohon isi semua kolom formulir.');
                 return;
             }
             
-            // Here you would normally send the form data to a server
-            // For now, we'll just show a success message
+            // Simpan data form (untuk implementasi pengiriman data ke server nantinya)
             const formData = {
                 name,
                 email,
@@ -168,15 +210,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log('Form data:', formData);
             
-            // Clear form
+            // Reset form
             contactForm.reset();
             
-            // Show success message (you could replace this with a better UI)
+            // Tampilkan pesan sukses
             alert('Pesan berhasil dikirim! Terima kasih telah menghubungi.');
         });
     }
     
-    // Add hover effects for project cards
+    /**
+     * Project Card Hover Effect
+     * Menambahkan efek hover pada project card
+     * Card akan terangkat saat mouse di atasnya
+     */
     const projectCards = document.querySelectorAll('.project-card');
     projectCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -190,7 +236,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Add active state to navbar links on scroll
+    /**
+     * Active Navigation Link
+     * Menandai link navigasi yang aktif saat scroll
+     * Menambahkan class 'active' pada link yang sesuai dengan section yang sedang dilihat
+     */
     window.addEventListener('scroll', function() {
         const sections = document.querySelectorAll('.section');
         const navLinks = document.querySelectorAll('.nav-link');
@@ -199,8 +249,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
             
+            // Jika scroll position sudah melewati section dengan offset 100px
             if (pageYOffset >= sectionTop - 100) {
                 current = section.getAttribute('id');
             }
@@ -214,7 +264,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Navbar scroll effect
+    /**
+     * Navbar Scroll Effect
+     * Efek shadow dan padding pada navbar saat scroll
+     * Navbar akan terlihat lebih menonjol saat halaman di-scroll
+     */
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
@@ -226,7 +280,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Animate decorative elements
+    /**
+     * Decorative Elements Animation
+     * Animasi elemen dekoratif saat halaman dimuat
+     * Menciptakan efek muncul pada bentuk-bentuk latar belakang
+     */
     const animateDecorativeElements = () => {
         const bgShapes = document.querySelectorAll('.bg-shape');
         bgShapes.forEach((shape, index) => {
@@ -242,72 +300,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
     
-    // Run shape animations on load
+    // Jalankan animasi bentuk latar belakang
     animateDecorativeElements();
     
-    // Add parallax effect to background shapes
-    window.addEventListener('mousemove', (e) => {
-        const shapes = document.querySelectorAll('.bg-shape');
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-        
-        shapes.forEach((shape, index) => {
-            const factor = (index + 1) * 20;
-            const xOffset = (x - 0.5) * factor;
-            const yOffset = (y - 0.5) * factor;
-            
-            shape.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
-        });
-    });
-    
-    // Add 3D tilt effect to project cards
-    const addTiltEffectToCards = () => {
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        projectCards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const cardRect = card.getBoundingClientRect();
-                const cardCenterX = cardRect.left + cardRect.width / 2;
-                const cardCenterY = cardRect.top + cardRect.height / 2;
-                
-                const mouseX = e.clientX - cardCenterX;
-                const mouseY = e.clientY - cardCenterY;
-                
-                const rotateY = mouseX / 15;
-                const rotateX = -mouseY / 15;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-            });
-        });
-    };
-    
-    // Enable the tilt effect only on larger screens
-    if (window.innerWidth > 768) {
-        addTiltEffectToCards();
-    }
-    
-    // Add dynamic background effects
-    const addDynamicBackgroundEffects = () => {
-        const header = document.querySelector('.header');
-        const moveDistance = 30;
-        
-        window.addEventListener('scroll', () => {
-            const scrollPercentage = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-            const moveY = scrollPercentage * moveDistance;
-            
-            if (header) {
-                header.style.backgroundPosition = `center ${-moveY}px`;
-            }
-        });
-    };
-    
-    addDynamicBackgroundEffects();
-    
-    // Add typing animation for section titles
+    /**
+     * Section Title Typing Effect
+     * Animasi typing effect pada judul section
+     * Menambahkan class 'typing-visible' saat section terlihat
+     */
     const addTypingEffectToTitles = () => {
         const sectionTitles = document.querySelectorAll('.section-title');
         
@@ -327,7 +327,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     addTypingEffectToTitles();
     
-    // Add staggered animation for timeline items
+    /**
+     * Timeline Items Animation
+     * Animasi bertahap untuk timeline items
+     * Item akan muncul satu per satu saat section terlihat
+     */
     const animateTimelineItems = () => {
         const timelineItems = document.querySelectorAll('.timeline-item');
         
@@ -336,7 +340,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (entry.isIntersecting) {
                     setTimeout(() => {
                         entry.target.classList.add('animate-in');
-                    }, index * 200);
+                    }, index * 200); // Delay staggered berdasarkan index
                     observer.unobserve(entry.target);
                 }
             });
@@ -349,7 +353,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     animateTimelineItems();
     
-    // Add enhanced mouseover effect for skill items
+    /**
+     * Skill Items Interaction
+     * Menambahkan efek hover pada skill items
+     * Item lain akan meredup saat mouse di atas salah satu skill
+     */
     const enhanceSkillItemsInteraction = () => {
         const skillItems = document.querySelectorAll('.skill-item');
         
@@ -357,11 +365,13 @@ document.addEventListener('DOMContentLoaded', function() {
             item.addEventListener('mouseover', function() {
                 const siblings = Array.from(this.parentNode.children).filter(child => child !== this);
                 
+                // Redupkan dan perkecil siblings
                 siblings.forEach(sibling => {
                     sibling.style.opacity = '0.5';
                     sibling.style.transform = 'scale(0.95)';
                 });
                 
+                // Besarkan item yang di-hover
                 this.style.transform = 'scale(1.1)';
                 this.style.zIndex = '2';
             });
@@ -369,6 +379,7 @@ document.addEventListener('DOMContentLoaded', function() {
             item.addEventListener('mouseout', function() {
                 const siblings = Array.from(this.parentNode.children);
                 
+                // Kembalikan semua ke normal
                 siblings.forEach(sibling => {
                     sibling.style.opacity = '1';
                     sibling.style.transform = 'scale(1)';
@@ -381,7 +392,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     enhanceSkillItemsInteraction();
     
-    // Add glowing effect to buttons on hover
+    /**
+     * Button Glow Effect
+     * Menambahkan efek glow pada tombol saat hover
+     * Tombol akan bersinar dengan warna accent
+     */
     const addGlowEffect = () => {
         const buttons = document.querySelectorAll('.btn-submit, .project-links a');
         
