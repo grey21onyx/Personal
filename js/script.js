@@ -324,7 +324,36 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(title);
         });
     };
-    
+        // Add 3D tilt effect to project cards
+        const addTiltEffectToCards = () => {
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            projectCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const cardRect = card.getBoundingClientRect();
+                    const cardCenterX = cardRect.left + cardRect.width / 2;
+                    const cardCenterY = cardRect.top + cardRect.height / 2;
+                    
+                    const mouseX = e.clientX - cardCenterX;
+                    const mouseY = e.clientY - cardCenterY;
+                    
+                    const rotateY = mouseX / 15;
+                    const rotateX = -mouseY / 15;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                });
+            });
+        };
+        
+        // Enable the tilt effect only on larger screens
+        if (window.innerWidth > 768) {
+            addTiltEffectToCards();
+        }
+        
     addTypingEffectToTitles();
     
     /**
