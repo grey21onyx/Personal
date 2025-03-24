@@ -633,6 +633,132 @@ a:hover {
     .profile-content h2 {
         font-size: 1.3rem;
     }
+    
+    /* Perbaikan tambahan untuk mobile */
+    .nav-links {
+        gap: 0.8rem;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+    
+    .project-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .skill-category h3 {
+        font-size: 1.1rem;
+    }
+    
+    .header {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info {
+        flex-direction: column;
+    }
+    
+    .contact-item {
+        margin-bottom: 1rem;
+    }
+    
+    /* Perbaikan tambahan untuk mobile kecil */
+    .profile-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .profile-content h2 {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .project-card {
+        margin: 0 0.5rem;
+    }
+    
+    .project-links a {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .nav-links {
+        gap: 0.5rem;
+    }
+    
+    .form-group input, 
+    .form-group textarea {
+        padding: 0.7rem;
+    }
+    
+    .btn-submit {
+        padding: 0.7rem 1.5rem;
+    }
+}
+
+/* Tambahan untuk perangkat sangat kecil */
+@media (max-width: 360px) {
+    .nav-links {
+        gap: 0.3rem;
+    }
+    
+    .nav-link {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.4rem;
+    }
+    
+    .profile-image img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .timeline-item {
+        padding-left: 50px;
+    }
+    
+    .timeline-content {
+        padding: 15px;
+    }
+    
+    .mini-profile img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Perbaikan untuk orientasi landscape pada mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .header {
+        padding: 2rem 0;
+    }
+    
+    .profile {
+        flex-direction: row;
+    }
+    
+    .profile-image img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .section {
+        padding: 3rem 0;
+    }
 }
 
 /* Animations */
@@ -1285,7 +1411,6 @@ body.dark-mode .social-links a:hover {
 .nav-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
 }
 
@@ -1297,61 +1422,138 @@ body.dark-mode .social-links a:hover {
     transform: translateY(-20px);
     transition: all 0.3s ease;
     pointer-events: none;
+    padding: 5px 10px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(5px);
+}
+
+/* Animasi pulse untuk mini-profile */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
 }
 
 .mini-profile.visible {
     opacity: 1;
     transform: translateY(0);
     pointer-events: all;
+    animation: pulse 1.5s ease-in-out;
+}
+
+body.dark-mode .mini-profile {
+    background-color: rgba(30, 30, 30, 0.4);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 .mini-profile img {
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
     border-radius: 8px;
-    margin-right: 0.5rem;
+    margin-right: 0.8rem;
     object-fit: cover;
     border: 2px solid var(--accent-color);
     transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mini-profile:hover img {
+    transform: rotate(5deg);
+    border-color: var(--primary-color);
 }
 
 .mini-profile span {
-    font-weight: 600;
-    color: var(--text-color);
+    font-weight: 700;
+    color: var(--dark-color);
     transition: color 0.3s ease;
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+body.dark-mode .mini-profile span {
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .mini-profile:hover {
     transform: translateY(-3px);
 }
 
-/* Responsive styles for mini profile */
+.mini-profile:hover span {
+    color: var(--accent-color);
+}
+
+/* Updated navbar container */
+.navbar .container {
+    display: flex;
+    align-items: center;
+}
+
+/* Membuat spacing antar elemen di dalam nav-content */
+.nav-links {
+    display: flex;
+    margin-right: 1.5rem;
+}
+
+/* Tombol dark mode dan mobile menu toggle */
+#theme-toggle {
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.mobile-menu-toggle {
+    margin-left: 1rem;
+}
+
+/* Responsive styles for navbar */
 @media (max-width: 768px) {
-    .mini-profile span {
-        display: none;
-    }
-    
     .mini-profile {
         margin-right: 1rem;
+        padding: 5px 8px;
+    }
+    
+    .mini-profile span {
+        font-size: 0.9rem;
     }
     
     .mini-profile img {
-        width: 30px;
-        height: 30px;
+        width: 28px;
+        height: 28px;
+        margin-right: 0.6rem;
+    }
+    
+    .nav-links {
+        margin-right: 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .mini-profile {
         margin-right: 0.5rem;
+        padding: 4px 6px;
     }
-}
-
-/* Updated navbar container */
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    
+    .mini-profile img {
+        width: 25px;
+        height: 25px;
+        margin-right: 0.5rem;
+    }
+    
+    .nav-links {
+        margin-right: 0.5rem;
+    }
 }
 
 /* Judul dengan efek typing animation */
@@ -1675,10 +1877,6 @@ body.dark-mode .skill-progress {
     body.dark-mode .navbar {
         background-color: rgba(26, 26, 26, 0.8);
     }
-    
-    .mini-profile.visible {
-        backdrop-filter: blur(5px);
-    }
 }
 
 /* Preloader for better UX */
@@ -1717,4 +1915,112 @@ body.dark-mode .preloader {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Mobile menu toggle */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.mobile-menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--dark-color);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+body.dark-mode .mobile-menu-toggle span {
+    background-color: #e0e0e0;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 640px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .nav-content {
+        justify-content: flex-start;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 2rem 2rem;
+        transition: right 0.3s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 5;
+        margin-right: 0;
+    }
+    
+    body.dark-mode .nav-links {
+        background-color: #1e1e1e;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-link {
+        font-size: 1.1rem;
+        margin: 0.8rem 0;
+        width: 100%;
+        padding: 0.5rem 0;
+    }
+    
+    #theme-toggle {
+        margin-left: auto;
+    }
+    
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 4;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    body.menu-open::after {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Style untuk body saat menu mobile terbuka */
+body.menu-open {
+    overflow: hidden;
 }

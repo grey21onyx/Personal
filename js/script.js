@@ -5,6 +5,11 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Deklarasi variabel yang akan digunakan di berbagai fungsi
+    const navLinksItems = document.querySelectorAll('.nav-link');
+    const navLinksContainer = document.querySelector('.nav-links');
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    
     /**
      * Preloader
      * Menghilangkan preloader setelah halaman selesai dimuat
@@ -61,8 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
      * Menambahkan fitur smooth scrolling untuk link navigasi
      * Memastikan pengguna dapat mengklik link dan halaman akan scroll dengan halus
      */
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
+    navLinksItems.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
@@ -441,4 +445,63 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     addGlowEffect();
+
+    /**
+     * Mobile Menu Toggle
+     * Mengelola menu hamburger untuk tampilan mobile
+     */
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinksContainer.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+        
+        // Tutup menu saat link di klik
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                navLinksContainer.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+        
+        // Tutup menu saat klik di luar menu
+        document.addEventListener('click', function(e) {
+            if (navLinksContainer.classList.contains('active') && 
+                !navLinksContainer.contains(e.target) && 
+                !mobileMenuToggle.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                navLinksContainer.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    }
+
+    /**
+     * Mobile Menu Touch Swipe
+     * Menambahkan kemampuan swipe untuk menutup menu di perangkat mobile
+     */
+    if (navLinksContainer) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        navLinksContainer.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        navLinksContainer.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+        
+        function handleSwipe() {
+            // Swipe dari kanan ke kiri untuk menutup menu
+            if (touchStartX - touchEndX > 50 && navLinksContainer.classList.contains('active')) {
+                mobileMenuToggle.classList.remove('active');
+                navLinksContainer.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        }
+    }
 });
