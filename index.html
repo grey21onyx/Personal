@@ -1,353 +1,449 @@
-<!DOCTYPE html>
-<html lang="id">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
-    <!-- Meta Tags untuk SEO dan responsivitas -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Muhamad Ariffadhlullah</title>
-    <meta name="description" content="Website portofolio profesional Muhamad Ariffadhlullah, seorang Software Engineer dan mahasiswa Teknik Rekayasa Perangkat Lunak di Politeknik Negeri Batam.">
-    <meta name="keywords" content="Muhamad Ariffadhlullah, Software Engineer, Web Developer, Portfolio, Batam, Indonesia">
-    <meta name="author" content="Muhamad Ariffadhlullah">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph Meta Tags untuk sharing ke social media -->
-    <meta property="og:title" content="About Me - Muhamad Ariffadhlullah">
-    <meta property="og:description" content="Website portofolio profesional Muhamad Ariffadhlullah, seorang Software Engineer dan mahasiswa Teknik Rekayasa Perangkat Lunak di Politeknik Negeri Batam.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourwebsite.com">
-    <meta property="og:image" content="https://media.discordapp.net/attachments/918866718326145084/1353049514784718930/WhatsApp_Image_2025-03-22_at_23.54.47.jpeg?ex=67e03d0e&is=67deeb8e&hm=01c110689738e78e608a91ea89b79a302608cf09b369b848120ec1b8220868d8&=&format=webp&width=990&height=990">
-    
-    <!-- CSS dan Font imports -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/918866718326145084/1353049514784718930/WhatsApp_Image_2025-03-22_at_23.54.47.jpeg?ex=67e03d0e&is=67deeb8e&hm=01c110689738e78e608a91ea89b79a302608cf09b369b848120ec1b8220868d8&=&format=webp&width=990&height=990" sizes="32x32">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muhamad Ariffadhlullah — Software Engineer</title>
+  <meta name="description" content="Muhamad Ariffadhlullah — software engineer building full-stack web and mobile products. D4 software engineering student at Politeknik Negeri Batam; five project-based learning engagements, Laravel, Flutter and IoT." />
+  <meta name="author" content="Muhamad Ariffadhlullah" />
+  <meta name="theme-color" content="#0C0C0E" />
+  <meta property="og:title" content="Muhamad Ariffadhlullah — Software Engineer" />
+  <meta property="og:description" content="Full-stack web and mobile engineer in Batam, Indonesia. Laravel, Flutter, MySQL, IoT — five PBL projects, 71/72 tasks delivered." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://grey21onyx.github.io/Personal/" />
+  <meta property="og:image" content="https://grey21onyx.github.io/Personal/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://grey21onyx.github.io/Personal/" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="assets/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    (function () {
+      document.documentElement.classList.add("js");
+      try {
+        var saved = localStorage.getItem("theme");
+        if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+      } catch (e) {}
+    })();
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Muhamad Ariffadhlullah",
+      "jobTitle": "Software Engineer",
+      "email": "mailto:grey21onyx@gmail.com",
+      "url": "https://grey21onyx.github.io/Personal/",
+      "sameAs": ["https://github.com/grey21onyx", "https://www.instagram.com/ini__ariff_21/"],
+      "address": { "@type": "PostalAddress", "addressLocality": "Batam", "addressCountry": "ID" },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Politeknik Negeri Batam" },
+      "knowsAbout": ["Laravel", "Flutter", "JavaScript", "PHP", "MySQL", "Python", "Figma", "UML"]
+    }
+  </script>
 </head>
-<body class="dark-mode">
-    <!-- Preloader - Ditampilkan selama halaman dimuat -->
-    <div class="preloader">
-        <div class="preloader-spinner"></div>
-    </div>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="aura" aria-hidden="true"></div>
 
-    <!-- Background decorative elements - Elemen dekoratif background -->
-    <div class="pattern"></div>
-    <div class="bg-shape bg-shape-1"></div>
-    <div class="bg-shape bg-shape-2"></div>
-    <div class="bg-shape bg-shape-3"></div>
-
-    <!-- Header - Bagian atas website dengan profil utama -->
-    <header class="header fade-in">
-        <div class="container">
-            <div class="profile">
-                <div class="profile-image">
-                    <img src="https://media.discordapp.net/attachments/918866718326145084/1353049514784718930/WhatsApp_Image_2025-03-22_at_23.54.47.jpeg?ex=67e03d0e&is=67deeb8e&hm=01c110689738e78e608a91ea89b79a302608cf09b369b848120ec1b8220868d8&=&format=webp&width=990&height=990" alt="Foto Profil">
-                </div>
-                <div class="profile-content">
-                    <h1><span class="typing-effect">Muhamad Ariffadhlullah</span></h1>
-                    <h2>Software Engineer</h2>
-                    <p>Nama saya Muhamad Ariffadhlullah. Saya sedang berkuliah di Politeknik Negeri Batam, jurusan Informatika, program studi Teknik Rekayasa Perangkat Lunak (D4). Saya memiliki ketertarikan yang besar di bidang ilmu komputer dan sains. Saya bercita-cita untuk menjadi seorang yang sukses di bidang tersebut. Saat ini, saya sedang mempelajari skill pengembangan aplikasi berbasis website.</p>
-                    <div class="social-links">
-                        <a href="https://github.com/grey21onyx" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://www.instagram.com/ini__ariff_21/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="mailto:grey21onyx@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Navbar - Menu navigasi sticky -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="mini-profile">
-                    <img src="https://media.discordapp.net/attachments/918866718326145084/1353049514784718930/WhatsApp_Image_2025-03-22_at_23.54.47.jpeg?ex=67e03d0e&is=67deeb8e&hm=01c110689738e78e608a91ea89b79a302608cf09b369b848120ec1b8220868d8&=&format=webp&width=990&height=990" alt="Mini Profile">
-                    <span>Muhamad Ariffadhlullah</span>
-                </div>
-                <div class="nav-links">
-                    <a href="#education" class="nav-link">Pendidikan</a>
-                    <a href="#projects" class="nav-link">Proyek</a>
-                    <a href="#skills" class="nav-link">Skills</a>
-                    <a href="#contact" class="nav-link">Kontak</a>
-                </div>
-                <!-- Toggle button untuk dark/light mode -->
-                <button id="theme-toggle" aria-label="Toggle Dark Mode">
-                    <i class="fas fa-sun"></i>
-                </button>
-                <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
+  <header class="topbar">
+    <a class="mark" href="#top" aria-label="Muhamad Ariffadhlullah — back to top"><span>MA</span><i>.</i></a>
+    <nav class="index" aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#education">Education</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <div class="topbar-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch colour theme" aria-pressed="false">
+        <svg class="i-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+        <svg class="i-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <a class="cv-button" href="assets/Muhamad-Ariffadhlullah-CV.pdf" download>
+        CV
+        <span class="cv-icon" aria-hidden="true">
+          <svg width="11" height="11" viewBox="0 0 16 16" fill="none">
+            <path d="M8 2v8M4.8 7l3.2 3.2L11.2 7M3 14h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+  </header>
 
-    <!-- Section Pendidikan - Menampilkan timeline riwayat pendidikan -->
-    <section id="education" class="section education">
-        <div class="container">
-            <h2 class="section-title section-title-gradient">Pendidikan</h2>
-            <div class="timeline">
-                <!-- Timeline item untuk pendidikan saat ini -->
-                <div class="timeline-item" style="--i:1">
-                    <div class="timeline-content">
-                        <h3>Universitas Politeknik Negeri Batam <span class="badge badge-primary">Current</span></h3>
-                        <p class="time">2024 - Sekarang</p>
-                        <p>Jurusan Informatika, Program Studi Teknik Rekayasa Perangkat Lunak (D4)</p>
-                        <p>Saya menekuni berbagai ilmu mengenai software engineering seperti pengembangan web, pemrograman berorientasi objek, dan manajemen basis data.</p>
-                    </div>
-                </div>
-                <!-- Timeline item untuk pendidikan sebelumnya -->
-                <div class="timeline-item" style="--i:2">
-                    <div class="timeline-content">
-                        <h3>SMA Negeri 4 Batam</h3>
-                        <p class="time">2021 - 2024</p>
-                        <p>Saya dari kelas IPA dengan lintas minat ekonomi.</p>
-                    </div>
-                </div>
-                <!-- Tambahkan pendidikan lain jika diperlukan -->
-            </div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <p class="eyebrow hero-eyebrow"><span class="pulse" aria-hidden="true"></span> Open to internships · Batam / remote</p>
+
+        <h1 class="hero-name">
+          <span class="line">Muhamad</span>
+          <span class="line italic">Ariffadhlullah<i>.</i></span>
+        </h1>
+
+        <div class="hero-copy">
+          <p class="role">Software engineer — full-stack web &amp; mobile</p>
+          <p class="lede">
+            Applied bachelor (D4) student at Politeknik Negeri Batam. I ship end to end: requirements and
+            UML, Figma interfaces, Laravel/MySQL back ends and Flutter apps. Five project-based learning
+            engagements so far, including an IoT e-waste smart bin and the in-progress
+            <a href="#p-lagibutuh">LagiButuh</a> marketplace.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:grey21onyx@gmail.com">
+              Email me
+              <span class="btn-icon" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 12 12 4M6 4h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
+            <a class="btn btn-ghost" href="assets/Muhamad-Ariffadhlullah-CV.pdf" download>Download CV</a>
+          </div>
         </div>
+
+        <aside class="portrait">
+          <div class="portrait-frame">
+            <img src="assets/profile.jpg" alt="Portrait of Muhamad Ariffadhlullah" width="472" height="472" />
+          </div>
+          <dl class="portrait-meta">
+            <div><dt>Based in</dt><dd>Batam, Indonesia</dd></div>
+            <div><dt>Local time</dt><dd><span id="localTime">—</span> WIB</dd></div>
+            <div><dt>Currently</dt><dd>Shipping LagiButuh</dd></div>
+          </dl>
+        </aside>
+
+        <ul class="proof">
+          <li><b>5</b><span>PBL projects</span></li>
+          <li><b>71<span class="of">/72</span></b><span>backlog tasks delivered</span></li>
+          <li><b>96<span class="of">/100</span></b><span>Samsung Innovation Campus</span></li>
+          <li><b>29<span class="of">/29</span></b><span>items closed on EcoZense</span></li>
+        </ul>
+      </div>
     </section>
 
-    <!-- Section Proyek - Menampilkan proyek-proyek yang pernah dikerjakan -->
-    <section id="projects" class="section projects">
-        <div class="container">
-            <h2 class="section-title section-title-gradient">Proyek saya</h2>
-            <div class="projects-grid">
-                <!-- Project Card 1 -->
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format" alt="Project 1" class="project-img">
-                    <div class="project-content">
-                        <h3>Proyek PBL Semester 1 - Aplikasi Pelatihan & LPJ</h3>
-                        <p class="time">2024</p>
-                        <p>Aplikasi ini dirancang untuk memfasilitasi pelatihan dan pembuatan Laporan Pertanggungjawaban (LPJ). Fitur utama termasuk modul pelatihan interaktif, pelacakan kemajuan peserta, dan otomatisasi pembuatan LPJ.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Divasatria100/aplikasi-pelatihan-lpj" target="_blank"><i class="fab fa-github"></i> Source Code</a>
-                        </div>
-                    </div>
+    <section class="section" id="work">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">01 / Work</p>
+          <h2>Selected <em>work</em></h2>
+          <p class="section-note">Five project-based learning engagements with Politeknik Negeri Batam, 2024–2026. Newest first — open a row for the detail.</p>
+        </header>
+
+        <div class="work-list">
+          <details class="work-row" id="p-lagibutuh">
+            <summary>
+              <span class="work-index">01</span>
+              <span class="work-title">
+                <span class="work-name">LagiButuh</span>
+                <span class="work-sub">local-services marketplace</span>
+                <span class="pill">In progress</span>
+              </span>
+              <span class="work-meta">2026 — Present</span>
+              <span class="work-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="work-body">
+              <div class="work-inner">
+                <p class="work-lede">A mobile platform connecting Batam customers with local service providers, from problem discovery to a designed and scaffolded product.</p>
+                <ul class="bullets">
+                  <li>Validated Batam's fragmented local-services market and framed the business case in a Lean Canvas, founders agreement and project plan (RPP).</li>
+                  <li>Authored user flows, user stories, DFD, SRS and branding guidelines, then translated them into the database design and Flutter scaffold.</li>
+                  <li>10 of 10 conception and design deliverables accepted; implementation of the mobile client is in progress.</li>
+                </ul>
+                <div class="work-foot">
+                  <ul class="stack" aria-label="Stack">
+                    <li>Flutter</li><li>Laravel</li><li>MySQL</li><li>Figma</li><li>Lean Canvas</li>
+                  </ul>
+                  <div class="work-links">
+                    <a href="https://github.com/grey21onyx/LagiButuh-web" target="_blank" rel="noopener">Web build ↗</a>
+                  </div>
                 </div>
-                <!-- Project Card 2 -->
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1974&auto=format" alt="Project 2" class="project-img">
-                    <div class="project-content">
-                        <h3>Proyek PBL Semester 2 - Aplikasi Edukasi Mengenai Eco Enzim</h3>
-                        <p class="time">2024-2025</p>
-                        <p>Aplikasi ini dirancang untuk memfasilitasi pembelajaran mengenai Eco Enzim. User dapat mendaftar menjadi nasabah bank sampah, lalu mendapatkan poin setelah menyetor sampah. Poin tersebut dapat digunakan untuk membeli barang hasil Eco Enzim. Fitur utama termasuk modul pembelajaran interaktif, pelacakan kemajuan pengguna.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/nossilleen/PBL-211" target="_blank"><i class="fab fa-github"></i> Source Code</a>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </details>
+
+          <details class="work-row" id="p-binnova">
+            <summary>
+              <span class="work-index">02</span>
+              <span class="work-title">
+                <span class="work-name">BINNOVA</span>
+                <span class="work-sub">IoT e-waste smart bin</span>
+              </span>
+              <span class="work-meta">2026</span>
+              <span class="work-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="work-body">
+              <div class="work-inner">
+                <p class="work-lede">An AI-assisted smart bin for campus e-waste: classification, fill-level monitoring and automated alerts, built on a Raspberry Pi and ESP32.</p>
+                <ul class="bullets">
+                  <li>Co-designed the architecture — YOLOv8/ResNet waste classification, capacity and safety monitoring, automated alerts — plus the ERD and hardware wiring across Raspberry Pi, ESP32, sensors, servo and LCD.</li>
+                  <li>Integrated and tested the physical prototype, then documented risk controls and threat ranking in the RPP.</li>
+                  <li>Implemented audit trails, session identifiers, data-integrity controls and secure coding; delivered 15 of 15 backlog items plus the implementation report.</li>
+                </ul>
+                <div class="work-foot">
+                  <ul class="stack" aria-label="Stack">
+                    <li>Raspberry Pi</li><li>ESP32</li><li>Python</li><li>MySQL</li><li>YOLOv8</li>
+                  </ul>
+                  <div class="work-links">
+                    <a href="https://pbl.polibatam.ac.id/apps/certpbl.php?id_tim=6996&amp;id_mhs=4342401070" target="_blank" rel="noopener">Certificate ↗</a>
+                    <a href="https://pbl.polibatam.ac.id/apps/transkrip_pbl.php?id_tim=6996&amp;id_mhs=4342401070" target="_blank" rel="noopener">Transcript ↗</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <details class="work-row" id="p-sawit">
+            <summary>
+              <span class="work-index">03</span>
+              <span class="work-title">
+                <span class="work-name">Sawit Supervisor</span>
+                <span class="work-sub">palm-oil operations app</span>
+              </span>
+              <span class="work-meta">2025</span>
+              <span class="work-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="work-body">
+              <div class="work-inner">
+                <p class="work-lede">A Flutter supervisor app for palm-oil plantation operations, covering recurring field tasks, login and notifications.</p>
+                <ul class="bullets">
+                  <li>Benchmarked Play Store apps in the palm-oil domain to define the supervisor feature set, then produced the ER diagram and Figma screens.</li>
+                  <li>Built the Flutter login and notification flows and the back end for recurring field tasks, covering scheduling and completion tracking.</li>
+                  <li>Closed 6 of 6 assigned backlog items across the conceive, design and implementation phases.</li>
+                </ul>
+                <div class="work-foot">
+                  <ul class="stack" aria-label="Stack">
+                    <li>Flutter</li><li>Dart</li><li>REST API</li><li>Figma</li>
+                  </ul>
+                  <div class="work-links">
+                    <a href="https://pbl.polibatam.ac.id/apps/certpbl.php?id_tim=5494&amp;id_mhs=4342401070" target="_blank" rel="noopener">Certificate ↗</a>
+                    <a href="https://pbl.polibatam.ac.id/apps/transkrip_pbl.php?id_tim=5494&amp;id_mhs=4342401070" target="_blank" rel="noopener">Transcript ↗</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <details class="work-row" id="p-ecozense">
+            <summary>
+              <span class="work-index">04</span>
+              <span class="work-title">
+                <span class="work-name">EcoZense</span>
+                <span class="work-sub">eco-enzyme learning &amp; waste bank</span>
+              </span>
+              <span class="work-meta">2025</span>
+              <span class="work-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="work-body">
+              <div class="work-inner">
+                <p class="work-lede">A waste-banking platform where residents deposit waste for points and spend them on eco-enzyme products, with a full admin dashboard.</p>
+                <ul class="bullets">
+                  <li>Designed the data layer from ERD to MySQL, with class, state-machine and sequence diagrams for the SKPPL specification.</li>
+                  <li>Built catalog browsing and admin dashboards for user data and submissions — Figma first, then Laravel and Bootstrap — adding search and newest/popular sorting across products, articles and events.</li>
+                  <li>Implemented deposit points, threaded comment replies on a tree structure, in-app notifications and seeders; closed 29 of 29 backlog items and passed UAT (F026-NF05).</li>
+                </ul>
+                <div class="work-foot">
+                  <ul class="stack" aria-label="Stack">
+                    <li>Laravel</li><li>MySQL</li><li>Bootstrap</li><li>Figma</li><li>Python</li>
+                  </ul>
+                  <div class="work-links">
+                    <a href="https://pbl.polibatam.ac.id/apps/certpbl.php?id_tim=3855&amp;id_mhs=4342401070" target="_blank" rel="noopener">Certificate ↗</a>
+                    <a href="https://pbl.polibatam.ac.id/apps/transkrip_pbl.php?id_tim=3855&amp;id_mhs=4342401070" target="_blank" rel="noopener">Transcript ↗</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <details class="work-row" id="p-lpj">
+            <summary>
+              <span class="work-index">05</span>
+              <span class="work-title">
+                <span class="work-name">Training &amp; LPJ System</span>
+                <span class="work-sub">proposals and accountability reports</span>
+              </span>
+              <span class="work-meta">2024</span>
+              <span class="work-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="work-body">
+              <div class="work-inner">
+                <p class="work-lede">A training-proposal and post-training report workflow for employees, managers and admins — the project where I led requirements before writing the UI.</p>
+                <ul class="bullets">
+                  <li>Led the analysis phase: use-case descriptions, input/output specification and a three-entity relational schema for the LPJ workflow.</li>
+                  <li>Authored the Vision &amp; Scope document — business requirements, assumptions, operating environment — plus the SRS sections on product benefits, user characteristics and constraints.</li>
+                  <li>Shipped the proposal screens for both roles, manager comment threads and DataTables search; 11 of 12 backlog items closed, with role-based login notifications left in backlog.</li>
+                </ul>
+                <div class="work-foot">
+                  <ul class="stack" aria-label="Stack">
+                    <li>Laravel</li><li>PHP</li><li>MySQL</li><li>Bootstrap</li><li>DataTables</li>
+                  </ul>
+                  <div class="work-links">
+                    <a href="https://pbl.polibatam.ac.id/apps/certpbl.php?id_tim=2802&amp;id_mhs=4342401070" target="_blank" rel="noopener">Certificate ↗</a>
+                    <a href="https://pbl.polibatam.ac.id/apps/transkrip_pbl.php?id_tim=2802&amp;id_mhs=4342401070" target="_blank" rel="noopener">Transcript ↗</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
         </div>
+      </div>
     </section>
 
-    <!-- Section Skills - Menampilkan kemampuan dan keahlian -->
-    <section id="skills" class="section skills">
-        <div class="container">
-            <h2 class="section-title section-title-gradient">Skills</h2>
-            <div class="skills-container">
-                <!-- Kategori Programming Languages & Databases -->
-                <div class="skill-category">
-                    <h3>Programming Languages & Databases</h3>
-                    <div class="skill-list">
-                        <div>
-                            <div class="skill-header">
-                                <span class="skill-item">HTML</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="skill-header">
-                                <span class="skill-item">CSS</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="skill-header">
-                                <span class="skill-item">JavaScript</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 70%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="skill-header">
-                                <span class="skill-item">PHP</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 70%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="skill-header">
-                                <span class="skill-item">MySQL</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Kategori Tools & Frameworks -->
-                <div class="skill-category">
-                    <h3>Tools & Frameworks</h3>
-                    <div class="skill-list">
-                        <div>
-                            <div class="skill-header">
-                                <span class="skill-item">Git</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="skill-header">
-                                <span class="skill-item">VS Code</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="skill-header">
-                                <span class="skill-item">AI</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="skill-header">
-                                <span class="skill-item">GitHub</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="skill-header">
-                                <span class="skill-item">Bootstrap</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Kategori Soft Skills -->
-                <div class="skill-category">
-                    <h3>Soft Skills</h3>
-                    <div class="skill-list">
-                        <div>
-                            <div class="skill-header">
-                                <span class="skill-item">Teamwork</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="skill-header">
-                                <span class="skill-item">Communication</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="skill-header">
-                                <span class="skill-item">Problem Solving</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-progress">
-                                <div class="skill-progress-bar" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section class="section" id="education">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">02 / Education</p>
+          <h2>Where I <em>study</em></h2>
+          <p class="section-note">Applied, project-based, and assessed on shipped software rather than exams alone.</p>
+        </header>
+
+        <div class="edu-list">
+          <article class="edu-row">
+            <p class="edu-year">2024 — Expected 2028</p>
+            <div class="edu-main">
+              <h3>Politeknik Negeri Batam</h3>
+              <p class="edu-degree">Applied Bachelor (D4), Software Engineering Technology <span>· Teknologi Rekayasa Perangkat Lunak (TRPL)</span></p>
+              <p class="edu-note">Coursework: web and mobile development, databases, requirements engineering (SRS, UML), IT project management, business intelligence, information security. Study is organised around company-style PBL sprints; every project above was delivered inside that model.</p>
             </div>
+            <p class="edu-place">Batam, ID</p>
+          </article>
+
+          <article class="edu-row">
+            <p class="edu-year">2021 — 2024</p>
+            <div class="edu-main">
+              <h3>SMA Negeri 4 Batam</h3>
+              <p class="edu-degree">Natural Sciences (IPA) with Economics cross-interest</p>
+            </div>
+            <p class="edu-place">Batam, ID</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Section Kontak - Form kontak dan informasi kontak lainnya -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title section-title-gradient">Hubungi Saya</h2>
-            <div class="contact-container">
-                <!-- Informasi kontak -->
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>grey21onyx@gmail.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-instagram"></i>
-                        <p>@ini__ariff_21</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <p>+62 877 5233 6647</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Batam, Indonesia</p>
-                    </div>
-                </div>
-                <!-- Form kontak -->
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nama</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Pesan</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Kirim Pesan</button>
-                </form>
-            </div>
+    <section class="section" id="toolkit">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">03 / Toolkit</p>
+          <h2>What I <em>use</em></h2>
+          <p class="section-note">The short list — everything here has shipped in at least one project above.</p>
+        </header>
+
+        <div class="toolkit">
+          <div class="tool-group">
+            <h3>Languages</h3>
+            <ul>
+              <li>JavaScript</li><li>PHP</li><li>Dart</li><li>Python</li><li>SQL</li><li>HTML</li><li>CSS</li>
+            </ul>
+          </div>
+          <div class="tool-group">
+            <h3>Frameworks &amp; data</h3>
+            <ul>
+              <li>Laravel</li><li>Flutter</li><li>React</li><li>Bootstrap</li><li>MySQL</li><li>DataTables</li>
+            </ul>
+          </div>
+          <div class="tool-group">
+            <h3>Modelling &amp; design</h3>
+            <ul>
+              <li>Figma</li><li>UML</li><li>DFD</li><li>ERD</li><li>User flows</li><li>Lean Canvas</li>
+            </ul>
+          </div>
+          <div class="tool-group">
+            <h3>Tools &amp; practice</h3>
+            <ul>
+              <li>Git</li><li>GitHub</li><li>VS Code</li><li>Raspberry Pi</li><li>ESP32</li><li>Linux</li><li>Secure coding</li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer - Copyright dan social media links -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; <span class="year">2024</span> Muhamad Ariffadhlullah. All Rights Reserved.</p>
-            <div class="social-links">
-                <a href="https://github.com/grey21onyx" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/ini__ariff_21/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:grey21onyx@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </footer>
+    <section class="section" id="credentials">
+      <div class="shell">
+        <header class="section-head">
+          <p class="eyebrow">04 / Credentials</p>
+          <h2>Proof, <em>on paper</em></h2>
+          <p class="section-note">Certificates are linked where a public verification page exists.</p>
+        </header>
 
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
+        <ul class="cred-list">
+          <li class="cred-row">
+            <span class="cred-year">Oct 2026</span>
+            <div class="cred-main">
+              <h3>Samsung Innovation Campus Batch 8 — Code Kickstart (Python)</h3>
+              <p>PT Samsung Electronics Indonesia · final score 96/100 · certificate 001/SEIN-CC-SIC8/CP/Mahasiswa/2026-2027/0566</p>
+            </div>
+            <span class="cred-score">96<span>/100</span></span>
+          </li>
+          <li class="cred-row">
+            <span class="cred-year">Sep 2026</span>
+            <div class="cred-main">
+              <h3>International PBL EXPO 2026 — Participant</h3>
+              <p>Politeknik Negeri Batam · international project exhibition</p>
+            </div>
+          </li>
+          <li class="cred-row">
+            <span class="cred-year">2024 — 2026</span>
+            <div class="cred-main">
+              <h3>Polibatam PBL project certificates (5)</h3>
+              <p>Verified on the PBL portal under NIM 4342401070; certificate and transcript links sit under each project.</p>
+            </div>
+            <a class="cred-link" href="https://pbl.polibatam.ac.id" target="_blank" rel="noopener">Portal ↗</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="shell">
+        <p class="eyebrow">05 / Contact</p>
+        <h2 class="contact-title" aria-label="Let's build something.">Let's build<br /><em>something</em>.</h2>
+
+        <div class="contact-grid">
+          <div class="contact-main">
+            <a class="mail" href="mailto:grey21onyx@gmail.com">grey21onyx@gmail.com</a>
+            <p class="contact-note">Fastest route is email. I read everything and usually reply within a day — internships, freelance builds or a question about one of the projects above.</p>
+          </div>
+          <dl class="contact-meta">
+            <div><dt>Phone</dt><dd><a href="tel:+6287752336647">+62 877 5233 6647</a></dd></div>
+            <div><dt>GitHub</dt><dd><a href="https://github.com/grey21onyx" target="_blank" rel="noopener">grey21onyx ↗</a></dd></div>
+            <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/ini__ariff_21/" target="_blank" rel="noopener">@ini__ariff_21 ↗</a></dd></div>
+            <div><dt>Location</dt><dd>Batam, Indonesia · GMT+7</dd></div>
+          </dl>
+        </div>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:grey21onyx@gmail.com">
+            Email me
+            <span class="btn-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <path d="M4 12 12 4M6 4h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          <a class="btn btn-ghost" href="assets/Muhamad-Ariffadhlullah-CV.pdf" download>Download CV</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <p>© <span id="year">2026</span> Muhamad Ariffadhlullah</p>
+      <p class="footer-note">Batam, Indonesia · built with plain HTML, CSS and JS</p>
+      <button class="to-top" type="button" id="toTop">Back to top ↑</button>
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
 </body>
 </html>
