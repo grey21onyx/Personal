@@ -96,7 +96,7 @@
     sections.forEach(function (item) {
       if (item.el.offsetTop <= line) active = item.el.id;
     });
-    if (active) setActive(active);
+    setActive(active);
 
     reveal();
   }
