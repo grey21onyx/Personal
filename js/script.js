@@ -1,5 +1,5 @@
 /* =========================================================================
-   Muhamad Ariffadhlullah — portfolio behaviour
+   Muhamad Ariffadhlullah: portfolio behaviour
    Theme, local time, scroll progress, section index, and scroll reveals.
    No dependencies. Everything degrades without JS.
    ========================================================================= */

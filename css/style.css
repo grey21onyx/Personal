@@ -1,5 +1,5 @@
 /* =========================================================================
-   Muhamad Ariffadhlullah — "Onyx editorial"
+   Muhamad Ariffadhlullah: "Onyx editorial"
    Warm charcoal, bone text, muted brass. Serif display / grotesk body /
    mono labels. Numbers, hairlines and asymmetry do the decoration.
    ========================================================================= */
@@ -363,7 +363,7 @@ summary { cursor: pointer; }
 /* ----------------------------------------------------------------- hero */
 .hero {
   padding-top: calc(var(--topbar) + clamp(2.5rem, 7vw, 5.5rem));
-  padding-bottom: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(3rem, 7vw, 6rem);
   position: relative;
   z-index: 1;
 }
@@ -537,41 +537,6 @@ summary { cursor: pointer; }
 }
 .portrait-meta dd { font-family: var(--mono); font-size: 0.72rem; text-align: right; }
 
-/* proof strip */
-.proof {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(1rem, 2.5vw, 2rem);
-  margin-top: clamp(1rem, 3vw, 2rem);
-  padding-top: 1.35rem;
-  border-top: 1px solid var(--rule);
-}
-.proof li { display: flex; flex-direction: column; gap: 0.25rem; }
-.proof b {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(1.9rem, 3.4vw, 2.65rem);
-  line-height: 1;
-  letter-spacing: -0.01em;
-  display: flex;
-  align-items: baseline;
-}
-.proof .of {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0;
-  color: var(--muted);
-  margin-left: 0.1em;
-}
-.proof span:not(.of) {
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
 /* ----------------------------------------------------------------- work */
 .work-list { border-top: 1px solid var(--rule); }
 .work-row { border-bottom: 1px solid var(--rule); }
@@ -699,10 +664,13 @@ summary { cursor: pointer; }
   line-height: 1.62;
 }
 .bullets li::before {
-  content: "—";
+  content: "";
   position: absolute;
   left: 0;
-  color: var(--accent);
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
   opacity: 0.85;
 }
 
@@ -946,7 +914,6 @@ summary { cursor: pointer; }
   .hero-name .line.italic { animation: rise 1s var(--ease) 0.14s both; }
   .hero-copy { animation: rise 1s var(--ease) 0.24s both; }
   .portrait { animation: rise 1.1s var(--ease) 0.32s both; }
-  .proof { animation: rise 1s var(--ease) 0.42s both; }
 }
 @keyframes rise {
   from { opacity: 0; transform: translateY(26px); }
@@ -999,10 +966,8 @@ summary { cursor: pointer; }
   .hero-grid { grid-template-columns: minmax(0, 1fr); }
   .hero-copy,
   .portrait,
-  .hero-name,
-  .proof { grid-column: 1 / -1; }
+  .hero-name { grid-column: 1 / -1; }
   .portrait { max-width: 20rem; justify-self: start; }
-  .proof { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem 1.5rem; }
 
   .work-row summary {
     grid-template-columns: 2rem minmax(0, 1fr) 2.2rem;
@@ -1029,7 +994,6 @@ summary { cursor: pointer; }
   .index { gap: 0.95rem; }
   .index a { font-size: 0.6rem; }
   .hero-name { font-size: clamp(2.9rem, 14.5vw, 4.4rem); }
-  .proof b { font-size: 1.75rem; }
   .work-sub { display: none; }
   .work-name { font-size: 1.45rem; }
   .work-inner { padding-left: 0; }
