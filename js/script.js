@@ -48,6 +48,9 @@
   }
   tick();
   setInterval(tick, 30000);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) tick();
+  });
 
   /* ------------------------------------------------------------- year */
   var year = document.getElementById("year");
